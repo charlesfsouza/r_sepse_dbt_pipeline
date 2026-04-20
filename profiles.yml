@@ -1,0 +1,20 @@
+r_sepse_dbt_pipeline:
+  outputs:
+    dev:
+      dataset: '{{env_var(''DBT_DBNAME'',''dbt_dw'')}}'
+      keyfile: C:/Users/Charles/dbt-projetos/dbtcoretreinamento-bf7bdc176e33.json
+      method: service-account
+      project: dbtcoretreinamento
+      threads: 4
+      type: bigquery
+  target: dev
+dbt_udemy_projeto_1:
+  outputs:
+    dev:
+      dataset: '{{env_var(''DBT_DBNAME'',''dbt_dw'')}}'
+      keyfile: C:/Users/Charles/dbt-projetos/dbtcoretreinamento-bf7bdc176e33.json
+      method: service-account
+      project: dbtcoretreinamento
+      threads: 4
+      type: bigquery
+  target: dev
