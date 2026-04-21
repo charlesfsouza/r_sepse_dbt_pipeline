@@ -1,0 +1,18 @@
+{
+    "workbench.editorAssociations": {
+        "*.copilotmd": "vscode.markdown.preview.editor",
+        "*.parquet": "duckdb.dataFileViewer",
+        "*.csv": "duckdb.dataFileViewer",
+        "*.tsv": "duckdb.dataFileViewer",
+        "*.xlsx": "duckdb.dataFileViewer"
+    },
+    "duckdb.databases": [
+        {
+            "alias": "dev",
+            "type": "file",
+            "path": "c:\\Users\\Charles\\dbt-projetos\\r_sepse_dbt_pipeline\\dev.duckdb",
+            "attached": false
+        }
+    ],
+    "duckdb.defaultDatabase": "dev"
+}

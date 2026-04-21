@@ -1,0 +1,125 @@
+version: 2
+
+sources:
+
+  - name: prontuario_eletronico_paciente
+    description: "Dados dos atendimentos realizados"
+    schema: main_raw
+
+    tables:
+      
+      - name: tab_sexo
+        description: "Tabela de sexo dos pacientes"
+        columns:
+          - name: id_sexo
+            description: "ID do sexo"
+            data_tests:
+              - not_null
+          - name: dsc_sexo
+            description: "Descrição do sexo"
+      
+      - name: tab_faixa_etaria
+        description: "Tabela de faixa etária dos pacientes" 
+        columns:
+          - name: id_faixa_etaria
+            description: "ID da faixa etária"
+            data_tests:
+              - not_null
+          - name: dsc_faixa_etaria
+            description: "Descrição da faixa etária"
+     
+      - name: tab_medico
+        description: "Tabela de médicos responsáveis pelos atendimentos"
+        columns:
+          - name: id_medico
+            description: "ID do médico"
+            data_tests:
+              - not_null
+          - name: nome_paciente
+            description: "Nome do médico"
+      
+      - name: tab_atendimento
+        description: "Tabela de atendimentos realizados"
+        columns:
+          - name: id_atendimento
+            description: "ID do atendimento"
+            data_tests:
+              - not_null
+          - name: id_paciente
+            description: "ID do paciente"
+          - name: id_medico
+            description: "ID do médico"
+          - name: dat_atendimento
+            description: "Data do atendimento"
+          - name: dat_alta
+            description: "Data de alta do paciente"
+      
+      - name: tab_paciente
+        description: "Tabela de pacientes atendidos"
+        columns:
+          - name: id_paciente
+            description: "ID do paciente"
+            data_tests:
+              - not_null
+          - name: nome_paciente
+            description: "Nome do paciente"
+          - name: id_sexo_paciente
+            description: "ID do sexo do paciente"
+          - name: id_faixa_etaria_paciente
+            description: "ID da faixa etária do paciente"
+
+      - name: tab_avaliacao
+        description: "Tabela de avaliações realizadas durante os atendimentos"
+        columns:
+          - name: id_avaliacao
+            description: "ID da avaliação"
+            data_tests:
+              - not_null
+          - name: id_atendimento
+            description: "ID do atendimento"
+          - name: id_medico
+            description: "ID do médico responsável pela avaliação"
+          - name: dat_avaliacao
+            description: "Data da avaliação"
+          - name: ind_marcacao_sepse
+            description: "Indicação de marcação de sepse (1 para sim, 0 para não)"
+      
+      - name: tab_item
+        description: "Tabela de itens passiveis de serem prescritos pelo medico durante avaliação"
+        columns:
+          - name: id_item
+            description: "ID do item"
+            data_tests:
+              - not_null
+          - name: nome_item
+            description: "Nome do item"
+          - name: tipo_item
+            description: "Tipo do item (medicação, exame, procedimento, etc.)"
+
+      - name: tab_item_prescricao
+        description: "Tabela de itens prescritos durante as avaliações"
+        columns:
+          - name: id_item_prescricao
+            description: "ID do item prescrito"
+            data_tests:
+              - not_null
+          - name: id_prescricao
+            description: "ID da prescrição"
+          - name: id_item
+            description: "ID do item prescrito"
+      
+      - name: tab_prescricao
+        description: "Tabela de prescrições realizadas durante as avaliações"
+        columns:
+          - name: id_prescricao
+            description: "ID da prescrição"
+            data_tests:
+              - not_null
+          - name: id_avaliacao
+            description: "ID da avaliação"
+          - name: id_atendimento
+            description: "ID do atendimento"
+          - name: id_medico
+            description: "ID do médico responsável pela prescrição"
+          - name: dat_prescricao
+            description: "Data da prescrição"
