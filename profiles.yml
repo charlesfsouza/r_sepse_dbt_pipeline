@@ -1,20 +1,28 @@
+#r_sepse_dbt_pipeline:
+#  outputs:
+#    dev:
+#      dataset: '{{env_var(''DBT_DBNAME'',''dbt_dw'')}}'
+#      keyfile: C:/Users/Charles/dbt-projetos/dbtcoretreinamento-bf7bdc176e33.json
+#      method: service-account
+#      project: dbtcoretreinamento
+#      threads: 4
+#      type: bigquery
+#  target: dev
+#dbt_udemy_projeto_1:
+#  outputs:
+#    dev:
+#      dataset: '{{env_var(''DBT_DBNAME'',''dbt_dw'')}}'
+#      keyfile: C:/Users/Charles/dbt-projetos/dbtcoretreinamento-bf7bdc176e33.json
+#      method: service-account
+#      project: dbtcoretreinamento
+#      threads: 4
+#      type: bigquery
+#  target: dev
+#
 r_sepse_dbt_pipeline:
+  target: dev
   outputs:
     dev:
-      dataset: '{{env_var(''DBT_DBNAME'',''dbt_dw'')}}'
-      keyfile: C:/Users/Charles/dbt-projetos/dbtcoretreinamento-bf7bdc176e33.json
-      method: service-account
-      project: dbtcoretreinamento
-      threads: 4
-      type: bigquery
-  target: dev
-dbt_udemy_projeto_1:
-  outputs:
-    dev:
-      dataset: '{{env_var(''DBT_DBNAME'',''dbt_dw'')}}'
-      keyfile: C:/Users/Charles/dbt-projetos/dbtcoretreinamento-bf7bdc176e33.json
-      method: service-account
-      project: dbtcoretreinamento
-      threads: 4
-      type: bigquery
-  target: dev
+      type: duckdb
+      path: dev.duckdb  # Nome do arquivo que será criado na pasta do projeto
+      #path: C:\Users\Charles\dbt-projetos\r_sepse_dbt_pipeline\dev.duckdb
