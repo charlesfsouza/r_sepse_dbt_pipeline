@@ -4,29 +4,45 @@ git checkout -b develop
 python -m venv venv
 source venv/Scripts/activate
 
-pip install -r requirements.txt
-
-
-
-
-
-dbt init
 source .env
 
+pip install dbt-duckdb  
+pip install -r requirements.txt
 
-dbt debug
+# dbt init
+
+
+git checkout -b main
+echo "# r_sepse_dbt_pipeline" >> README.md
+git add README.md
+
+git commit -m "first commit"
+git branch -M main
+git push -u origin main
+
 
 dbt deps
+dbt debug
 
-echo $DBT_DBNAME
+git status
+git add .
+git commit -m 'criacao dos modelos de staging'
+
+git push --set-upstream origin develop
 
 
-# APOS INSERIR AS SEEDS
+git pull orgin main
+
+
 
 dbt debug
 dbt seed
 
 # 
+dbt run --select models/staging
+dbt run --select models/staging/stg__sexo.sql
+
+
 dbt build --select stg_clientes
 dbt build --select stg_avaliacoes
 
